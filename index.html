@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Score</title>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+    <!-- MDB UI KIT -->
+    <link rel="stylesheet" href="css/mdb.min.css" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
+    <!-- Custom styles -->
+    <style>
+        /* ... existing styles ... */
+        
+        th,
+        td {
+            padding: 10px;
+            /* Adjust the padding as needed */
+            color: #180404;
+            /* Set text color to white for better visibility on the blue background */
+        }
+        
+        tr:nth-child(n+1):nth-child(-n+11) {
+            background-color: #98FB98;
+            font-size: 15px;
+            ;
+            /* Green color code for the 2nd to 11th rows */
+            color: white;
+            /* Set text color to white for better visibility on the green background */
+        }
+        
+        tr:first-child {
+            background-image: linear-gradient(to right, rgb(191, 224, 191), rgb(212, 99, 176), rgb(145, 205, 145));
+            /* Gradient for the first row */
+            color: white;
+            /* Set text color to white for better visibility on the gradient background */
+        }
+        
+        th {
+            background-color: #060b0f;
+            /* Darker blue color code for table header */
+        }
+        /* ... existing styles ... */
+    </style>
+
+    <style>
+        .navbar {
+            background: linear-gradient(45deg, #8e44ad, #c0392b);
+            color: whitesmoke;
+            font-family: Trirong, serif;
+            font-weight: 200px;
+            font-size: 20px;
+            /* Change the font family as needed */
+        }
+        
+        .navbar-nav .nav-link {
+            color: #fff !important;
+            /* Set text color to white for better visibility */
+        }
+        
+        body {
+            background: url(https://media.istockphoto.com/id/537331500/photo/programming-code-abstract-technology-background-of-software-deve.jpg?s=612x612&w=0&k=20&c=jlYes8ZfnCmD0lLn-vKvzQoKXrWaEcVypHnB5MuO-g8=) center / cover;
+            width: 100%;
+        }
+        
+        table {
+            background-color: #bacbd5;
+            /* Light blue color code */
+            border-radius: 8px;
+            /* Optional: Add border-radius for rounded corners */
+        }
+        
+        th,
+        td {
+            padding: 10px;
+            /* Adjust the padding as needed */
+            color: #180404;
+            font-weight: 100px;
+            font-size: 15px;
+            /* Set text color to white for better visibility on the blue background */
+        }
+        
+        th {
+            background-color: #060b0f;
+            /* Darker blue color code for table header */
+        }
+        
+        .mb-10 {
+            background: linear-gradient(45deg, #8e44ad, #c0392b);
+            /* Adjust the color codes as needed */
+        }
+    </style>
+</head>
+
+< <body>
+    <!--Main Navigation-->
+    <header class="mb-10">
+        <!-- Navbar-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-2 fixed-top">
+            <div class="
+            container-fluid
+            justify-content-center justify-content-md-between
+          ">
+                <!-- Left elements -->
+                <ul class="navbar-nav flex-row align-items-center">
+                    <li class="nav-item me-3 me-lg-1">
+                        <a class="nav-link d-flex" href="https://easy-data.mdbgo.io/" target="_blank">
+                            <span style="
+                    font-size: 19px;
+                    
+                    color: white;
+                    font-family: Audiowide, sans-serif;
+                    font-size:25px;
+                  ">CODE HUNT-2K24</span>
+                        </a>
+                    </li>
+
+                </ul>
+                <!-- Left elements -->
+
+                <!-- Center elements -->
+                <ul class="navbar-nav flex-row d-none d-md-flex">
+                    <li class="nav-item me-3 me-lg-1">
+                        <a class="nav-link d-flex" href="https://easy-data.mdbgo.io/#section-google-sheets" target="_blank">
+                            <span><strong>Rank List</strong></span>
+                        </a>
+                    </li>
+                </ul>
+                <!-- Center elements -->
+
+                <!-- Right elements -->
+                <ul class="navbar-nav flex-row d-none d-md-flex">
+                    <span style="margin-right:20px;"><strong>VVCE</strong></span> </ul>
+                <!-- Right elements -->
+            </div>
+        </nav>
+        <!-- Navbar -->
+    </header>
+
+    <!--Main Navigation-->
+
+    <!--Main layout-->
+    <main>
+        <div class="container">
+            <!-- Table -->
+            <table class="table">
+                <thead id="table-head"></thead>
+                <tbody id="table-body"></tbody>
+            </table>
+            <!-- Table -->
+        </div>
+    </main>
+    <!--Main layout-->
+
+    <!--Footer-->
+    <footer></footer>
+    <!--Footer-->
+    </body>
+
+    <!-- MDB ESSENTIAL -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <!-- Google API -->
+    <script src="https://apis.google.com/js/api.js"></script>
+    <!-- easyData -->
+    <script type="text/javascript" src="js/easyData-google-sheets.js"></script>
+
+    <!-- easyData - Creating table -->
+    <script>
+        {
+            {
+                // Your API KEY
+                const API_KEY = "AIzaSyDSBYmBui0dfO3J-hSoRKjgmToAq1ye-CY";
+
+                function displayResult2(response) {
+                    let tableHead = "";
+                    let tableBody = "";
+
+                    response.result.values.forEach((row, index) => {
+                        if (index === 0) {
+                            tableHead += "<tr>";
+                            row.forEach((val) => (tableHead += "<th>" + val + "</th>"));
+                            tableHead += "</tr>";
+                        } else {
+                            tableBody += "<tr>";
+                            row.forEach((val) => (tableBody += "<td>" + val + "</td>"));
+                            tableBody += "</tr>";
+                        }
+                    });
+
+                    document.getElementById("table-head").innerHTML = tableHead;
+                    document.getElementById("table-body").innerHTML = tableBody;
+                }
+
+                function loadData() {
+                    // Spreadsheet ID
+                    const spreadsheetId = "1MMtcBGXUknvXZ7L0Q2mjqqqNLBNT2WNUB_WKU052FE0";
+                    const range = "A:Z";
+                    getPublicValues({
+                        spreadsheetId,
+                        range
+                    }, displayResult2);
+                }
+
+                window.addEventListener("load", (e) => {
+                    initOAuthClient({
+                        apiKey: API_KEY
+                    });
+                });
+
+                document.addEventListener("gapi-loaded", (e) => {
+                    loadData();
+                });
+            }
+        }
+    </script>
+
+    </body>
+
+</html>
